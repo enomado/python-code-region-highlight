@@ -98,10 +98,10 @@ def translate_to_offset(lines, q):
 	return offset
 
 
-def run():
+def run(project_directory):
 	failures = {}
 	count_errors = 0
-	project = Project('/home/sc/t/turnik/.env/lib/python2.7/site-packages')
+	project = Project(project_directory)
 	files = project.pycore.get_python_files()
 
 	for file_num, resource in enumerate(files):
@@ -160,7 +160,7 @@ def render(failures):
 
 
 def main():
-	failures = run()
+	failures = run('/home/sc/t/turnik/.env/lib/python2.7/site-packages')
 	render(failures)
 
 
